@@ -854,6 +854,39 @@
       color: var(--accent)
     }
 
+    .manager {
+      display: grid;
+      justify-items: start;
+      margin-top: var(--s-4);
+      padding-top: var(--s-3);
+      border-top: 1px solid var(--line)
+    }
+
+    .manager .meta {
+      margin: 0
+    }
+
+    .manager__name {
+      margin: 6px 0 4px;
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 9vw, 2.5rem);
+      line-height: 1;
+      text-transform: uppercase
+    }
+
+    .manager a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      font-size: 1.125rem;
+      text-underline-offset: 4px;
+      overflow-wrap: anywhere
+    }
+
+    .manager a:hover {
+      color: var(--accent)
+    }
+
     .socials {
       display: flex;
       flex-wrap: wrap;
@@ -1328,7 +1361,8 @@
           <li><a href="#/contact" data-route="contact">Contact</a></li>
         </ul>
         <div class="nav-foot meta">
-          <a href="mailto:hello@rajitdev.com">hello@rajitdev.com</a>
+          <a href="mailto:rajitdev123@gmail.com">rajitdev123@gmail.com</a>
+          <a href="tel:+919766016531">Manager: Jovita J K · +91 97660 16531</a>
           <a href="https://www.instagram.com/rajitdev/" target="_blank" rel="noopener noreferrer">Instagram @rajitdev</a>
           <span>Based in Mumbai, India</span>
         </div>
@@ -1532,7 +1566,14 @@
           <div class="contact-grid">
             <div>
               <p class="lead">Available for music videos, film songs, tours, brand campaigns and workshops.</p>
-              <a class="contact-mail" href="mailto:hello@rajitdev.com">hello@<wbr>rajitdev.com</a>
+              <p class="meta">Rajit Dev</p>
+              <a class="contact-mail" href="mailto:rajitdev123@gmail.com">rajitdev123@<wbr>gmail.com</a>
+              <div class="manager">
+                <p class="meta">Management</p>
+                <p class="manager__name">Jovita J K</p>
+                <a href="tel:+919766016531">+91 97660 16531</a>
+                <a href="mailto:jovita.jose93@gmail.com">jovita.jose93@gmail.com</a>
+              </div>
               <div class="socials">
                 <a class="btn" href="https://www.instagram.com/rajitdev/" target="_blank" rel="noopener noreferrer">Instagram @rajitdev</a>
               </div>
@@ -1783,7 +1824,7 @@
       e.preventDefault();
       const d = new FormData(e.target);
       const body = `${d.get("message")}\n\n— ${d.get("name")} (${d.get("email")})`;
-      location.href = "mailto:hello@rajitdev.com?subject=" +
+      location.href = "mailto:rajitdev123@gmail.com?cc=jovita.jose93@gmail.com&subject=" +
         encodeURIComponent("Portfolio enquiry from " + d.get("name")) +
         "&body=" + encodeURIComponent(body);
     });
