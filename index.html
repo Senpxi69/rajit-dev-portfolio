@@ -1539,8 +1539,7 @@
           <div class="hero__grid">
             <p class="hero__tag">When the vision is limitless, the stage becomes his universe.</p>
             <div class="hero__cta">
-              <button class="btn btn--solid" type="button" id="reelBtn" aria-haspopup="dialog">Watch the showreel</button>
-              <a class="btn" href="#/work">See the work</a>
+              <a class="btn btn--solid" href="#/work">See the work</a>
             </div>
           </div>
         </div>
@@ -1548,21 +1547,10 @@
           <img src="media/reel-poster.jpg"
             srcset="media/reel-poster-480.jpg 480w, media/reel-poster.jpg 720w"
             sizes="(min-width:768px) 40vw, 100vw" width="720" height="1280"
-            alt="Rajit Dev in a black suit under stage beams, still from his showreel" fetchpriority="high"
+            alt="Rajit Dev in a black suit under stage beams" fetchpriority="high"
             decoding="async">
-          <div class="hero__cap meta" style="color:#fff"><span>Showreel 2026</span><span>01:05</span></div>
         </div>
       </section>
-
-      <dialog class="reel" id="reel" aria-label="Rajit Dev showreel">
-        <div class="reel__bar">
-          <span class="meta">Showreel 2026 · 01:05</span>
-          <button class="btn" type="button" id="reelClose">Close</button>
-        </div>
-        <video controls playsinline preload="none" poster="media/reel-poster.jpg" width="720" height="1280">
-          <source src="media/rajit-showreel.mp4" type="video/mp4">
-        </video>
-      </dialog>
 
       <!-- EIGHT COUNTS -->
       <section aria-labelledby="counts-title">
@@ -1697,10 +1685,10 @@
             <div class="about__copy">
               <p class="lead">He doesn't just choreograph movement. He creates moments.</p>
               <p>Rajit Dev is a choreographer and director with a distinct creative vision, bringing together movement, music, and storytelling to create work that connects with audiences. Whether it's a music video, a live performance, or a cinematic concept, he believes in pushing boundaries and making every frame count.</p>
-              <p>Fluent in Salsa, Bollywood Jazz, Hip-hop and Contemporary, he blends them into modern, catchy hook steps that are easy to learn and hard to forget, which is why millions of Reels remakes exist. He choreographs for the camera and the crowd at once, from viral tracks to the FIFA Fan Festival Qatar 2022 stage.</p>
+              <p>Fluent in Hip-hop, Bollywood and Contemporary, he blends them into modern, catchy hook steps that are easy to learn and hard to forget, which is why millions of Reels remakes exist. He choreographs for the camera and the crowd at once, from viral tracks to the FIFA Fan Festival Qatar 2022 stage.</p>
               <p>After more than a decade, he still works the same way: feel the music first, then let the body answer. For events and shows he brings a team of dancers trained under him, who know his style and his counts, so every stage looks sharp and in sync.</p>
               <ul class="list">
-                <li><span>Style</span><span class="meta">Bollywood Jazz, Hip-hop, Contemporary, Salsa</span></li>
+                <li><span>Style</span><span class="meta">Hip-hop, Bollywood, Contemporary</span></li>
                 <li><span>Signature</span><span class="meta">Catchy, modern hook steps</span></li>
                 <li><span>Energy</span><span class="meta">Playful, sharp, built for the camera</span></li>
                 <li><span>Team</span><span class="meta">Trained dancers for events &amp; shows</span></li>
@@ -1858,16 +1846,6 @@
       renderWork(chip.dataset.cat);
       observe();
     });
-
-    /* Showreel with sound, in a native dialog (Esc closes it) */
-    const reel = document.getElementById("reel"), reelVideo = reel.querySelector("video");
-    document.getElementById("reelBtn").addEventListener("click", () => {
-      reel.showModal();
-      reelVideo.play().catch(() => { });
-    });
-    document.getElementById("reelClose").addEventListener("click", () => reel.close());
-    reel.addEventListener("click", e => { if (e.target === reel) reel.close(); });
-    reel.addEventListener("close", () => reelVideo.pause());
 
     /* Video facade: the iframe is created only after the viewer taps play */
     document.addEventListener("click", e => {
