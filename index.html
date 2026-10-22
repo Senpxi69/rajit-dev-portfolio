@@ -1673,13 +1673,14 @@
     <article class="page" id="page-work" data-title="Work — Rajit Dev" hidden>
       <section>
         <div class="wrap">
-          <p class="meta">Index · 23 songs · 2017 — 2026</p>
+          <p class="meta">Index · 26 projects · 2017 — 2026</p>
           <h1 class="page-title" tabindex="-1">Work</h1>
           <div class="filters" role="group" aria-label="Filter by type">
             <button class="chip" type="button" data-cat="" aria-pressed="true">All</button>
             <button class="chip" type="button" data-cat="Music video" aria-pressed="false">Music videos</button>
             <button class="chip" type="button" data-cat="Film song" aria-pressed="false">Film songs</button>
-            <button class="chip" type="button" data-cat="Brand &amp; live" aria-pressed="false">Brand &amp; live</button>
+            <button class="chip" type="button" data-cat="Brand" aria-pressed="false">Brand</button>
+            <button class="chip" type="button" data-cat="Live" aria-pressed="false">Live</button>
           </div>
           <div class="work-list" id="allwork"></div>
         </div>
@@ -1694,15 +1695,15 @@
           <h1 class="page-title" tabindex="-1">Rajit <span class="serif">Dev</span></h1>
           <div class="about__grid">
             <div class="about__copy">
-              <p class="lead">I build movement that feels inevitable: precise on the count, alive between the counts.</p>
-              <p>Replace this paragraph with your story: where you trained, which styles shaped you, and the artists,
-                directors and stages you have worked with.</p>
-              <p>A second paragraph can cover your process: living with the track, building the hook, rehearsing the
-                cast, and working with the camera so every step reads on screen.</p>
+              <p class="lead">A dancer first. Rajit moves like someone who can't hear a beat without finding the step that makes it stick.</p>
+              <p>Fluent in Salsa, Bollywood Jazz, Hip-hop and Contemporary, he blends them into modern, catchy hook steps that are easy to learn and hard to forget, which is why millions of Reels remakes exist. He choreographs for the camera and the crowd at once, from viral tracks to the FIFA Fan Festival Qatar 2022 and T20 World Cup 2026 stages.</p>
+              <p>After more than a decade, he still works the same way: feel the music first, then let the body answer. For events and shows he brings a team of dancers trained under him, who know his style and his counts, so every stage looks sharp and in sync.</p>
               <ul class="list">
-                <li><span>Choreography</span><span class="meta">Film, music video</span></li>
-                <li><span>Stage</span><span class="meta">Tours, live shows</span></li>
-                <li><span>Teaching</span><span class="meta">Workshops, masterclasses</span></li>
+                <li><span>Style</span><span class="meta">Bollywood Jazz, Hip-hop, Contemporary, Salsa</span></li>
+                <li><span>Signature</span><span class="meta">Catchy, modern hook steps</span></li>
+                <li><span>Energy</span><span class="meta">Playful, sharp, built for the camera</span></li>
+                <li><span>Team</span><span class="meta">Trained dancers for events &amp; shows</span></li>
+                <li><span>Reach</span><span class="meta">Millions of Reels remakes</span></li>
               </ul>
             </div>
             <img class="about__img" loading="lazy" decoding="async" width="1290" height="1281"
@@ -1759,7 +1760,8 @@
     document.documentElement.classList.add("js");
 
     /* ===== PROJECTS (newest first) =====
-       yt: the YouTube video ID. cat: "Music video", "Film song" or "Brand & live" (drives the Work filters).
+       yt: the YouTube video ID. cat: "Music video", "Film song", "Brand" or "Live" (drives the Work filters).
+       img: a still from /media for projects with no video (live shows); they render as a plain card.
        featured: shown on the home page. embed: false for videos whose owner blocks embedding (opens on YouTube). */
     const PROJECTS = [
       { yt: "lik59RawVfw", title: "Slay to the Rhythm", type: "Music video", cat: "Music video", year: "2026", artist: "Nora Fatehi, MA3IZ", featured: true },
@@ -1770,7 +1772,8 @@
       { yt: "uChhQpHMmXE", title: "Aaye Haaye", type: "Music video", cat: "Music video", year: "2024", artist: "Karan Aujla, Nora Fatehi, Neha Kakkar", featured: true },
       { yt: "a-PAcmi5Kas", title: "Payal", type: "Music video", cat: "Music video", year: "2024", artist: "Yo Yo Honey Singh, Nora Fatehi" },
       { yt: "Zrt77f7nTqY", title: "Morni", type: "Music video", cat: "Music video", year: "2024", artist: "Badshah, Sharvi Yadav", featured: true },
-      { yt: "wwgTK6GZJJQ", title: "Rise Up Baby × Yahan Ke Hum Sikandar", type: "Brand campaign · Pepsi", cat: "Brand & live", year: "2024", artist: "Ranveer Singh" },
+      { yt: "wwgTK6GZJJQ", title: "Rise Up Baby × Yahan Ke Hum Sikandar", type: "Brand campaign · Pepsi", cat: "Brand", year: "2024", artist: "Ranveer Singh" },
+      { yt: "gXYxwJSErVE", title: "Rise Up Baby × Yahan Ke Hum Sikandar (Official)", type: "Brand campaign · Pepsi", cat: "Brand", year: "2024", artist: "Ranveer Singh, Tanishk Bagchi, Vishal Dadlani" },
       { yt: "3rWL1mavaKQ", title: "Zaalim", type: "Music video", cat: "Music video", year: "2024", artist: "Badshah, Nora Fatehi", featured: true },
       { yt: "GAmr_l92IUE", title: "Yaara Dildaara", type: "Music video", cat: "Music video", year: "2024", artist: "Asim Riaz, Zaara Yesmin" },
       { yt: "ouFzVR5pD1Y", title: "Naina Milayke", type: "Music video", cat: "Music video", year: "2023", artist: "Dhvani Bhanushali" },
@@ -1778,7 +1781,10 @@
       { yt: "3_iYqDuYYSc", title: "Mere Sanam Ke Khwaab", type: "Music video", cat: "Music video", year: "2023", artist: "Kavita Seth, Kanishk Seth" },
       { yt: "HBw_sBj3xwo", title: "Psycho", type: "Music video", cat: "Music video", year: "2023", artist: "Harrdy Sandhu" },
       { yt: "nVPFfbg2clk", title: "Sexy in My Dress", type: "Music video", cat: "Music video", year: "2023", artist: "Nora Fatehi" },
-      { yt: "dS_wr57Zpis", title: "Memu Aagamu", type: "Live performance · Coke Studio", cat: "Brand & live", year: "2022", artist: "Allu Arjun, Armaan Malik, TRI.BE" },
+      { yt: "dS_wr57Zpis", title: "Memu Aagamu", type: "Live performance · Coke Studio", cat: "Live", year: "2022", artist: "Allu Arjun, Armaan Malik, TRI.BE" },
+      { img: "media/wall-01-900.webp", title: "FIFA Fan Festival Qatar 2022", type: "Live show · FIFA", cat: "Live", year: "2022", artist: "FIFA Fan Festival, Qatar", credit: "Director & choreographer" },
+      { img: "media/wall-02-900.webp", title: "Light the Sky", type: "Live show · FIFA anthem", cat: "Live", year: "2022", artist: "FIFA World Cup Qatar 2022", credit: "Choreographer" },
+      { img: "media/wall-03-900.webp", title: "T20 World Cup 2026", type: "Live show · ICC", cat: "Live", year: "2026", artist: "ICC Men's T20 World Cup", credit: "Director & choreographer" },
       { yt: "Tb6xGDiSscc", title: "Dirty Little Secret", type: "Music video", cat: "Music video", year: "2022", artist: "Nora Fatehi, Zack Knight" },
       { yt: "NwdQx2P_ytk", title: "Bijlee Bijlee", type: "Music video", cat: "Music video", year: "2021", artist: "Harrdy Sandhu, Palak Tiwari", featured: true },
       { yt: "hGf8rOwFzvo", title: "Chhor Denge", type: "Music video", cat: "Music video", year: "2021", artist: "Nora Fatehi, Ehan Bhat" },
@@ -1802,6 +1808,16 @@
     }
 
     function projectHTML(p, i) {
+      if (!p.yt) return `
+  <div class="project reveal">
+    <div class="poster" style="cursor:auto"><img loading="lazy" decoding="async" src="${esc(p.img)}" alt="${esc(p.title)}"></div>
+    <div>
+      <span class="project__num">${String(i + 1).padStart(2, "0")}</span>
+      <h3>${esc(p.title)}</h3>
+      <p class="meta">${esc(p.type)} · ${esc(p.year)}</p>
+      <dl class="credits"><dt>Event</dt><dd>${esc(p.artist)}</dd><dt>Role</dt><dd>${esc(p.credit || ROLE)}</dd></dl>
+    </div>
+  </div>`;
       const img = `<img loading="lazy" decoding="async" width="1280" height="720" src="${thumb(p.yt, "maxresdefault")}"
            srcset="${thumb(p.yt, "mqdefault")} 320w, ${thumb(p.yt, "maxresdefault")} 1280w"
            sizes="(min-width:1024px) 55vw, (min-width:768px) 50vw, 100vw" alt="">
