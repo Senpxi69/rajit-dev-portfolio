@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Rajit Dev — Choreographer</title>
+  <title>Rajit Dev — Director &amp; Choreographer</title>
   <meta name="description" content="Portfolio of Rajit Dev: choreography for music videos, film songs, live stage and brand campaigns.">
   <meta name="theme-color" content="#0b0b0a">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -293,7 +293,7 @@
       font-style: italic;
       font-size: 1.75rem;
       line-height: 1.15;
-      max-width: 18ch;
+      max-width: 22ch;
       margin-bottom: var(--s-3)
     }
 
@@ -550,7 +550,7 @@
     .beat__n {
       min-width: .62em;
       font-family: var(--font-display);
-      font-size: clamp(4.5rem, 24vw, 6.5rem);
+      font-size: clamp(5rem, 28vw, 7.5rem);
       line-height: .8;
       color: var(--muted);
       transition: color .4s var(--ease), -webkit-text-stroke-color .4s var(--ease)
@@ -579,13 +579,27 @@
       max-width: 34ch
     }
 
-    /* ===== 3c. MOVEMENT TRAIL ===== */
-    .trail {
-      list-style: none;
-      margin: var(--s-4) 0 0;
-      padding: 0 var(--gutter) var(--s-2);
+    /* ===== 3c. POLAROID WALL ===== */
+    .wall-head {
       display: flex;
-      gap: 12px;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: var(--s-2)
+    }
+
+    .wall-hint {
+      margin: 0 0 6px;
+      white-space: nowrap
+    }
+
+    /* Mobile: a swipe row, the next polaroid peeks in from the right */
+    .wall {
+      list-style: none;
+      margin: var(--s-3) 0 0;
+      padding: 28px var(--gutter) 44px;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       scroll-padding-inline: var(--gutter);
@@ -593,21 +607,90 @@
       scrollbar-color: var(--line) transparent
     }
 
-    .trail__frame {
-      flex: 0 0 72%;
-      scroll-snap-align: start
+    .polaroid {
+      flex: 0 0 78%;
+      scroll-snap-align: start;
+      position: relative;
+      margin: var(--dy, 0) 0 0;
+      rotate: var(--r, 0deg)
     }
 
-    .trail__frame img {
+    .polaroid:nth-child(4n+1) {
+      --r: -2.5deg;
+      --dy: 0px
+    }
+
+    .polaroid:nth-child(4n+2) {
+      --r: 2deg;
+      --dy: 24px
+    }
+
+    .polaroid:nth-child(4n+3) {
+      --r: -1.5deg;
+      --dy: 6px
+    }
+
+    .polaroid:nth-child(4n+4) {
+      --r: 3deg;
+      --dy: 30px
+    }
+
+    .polaroid figure {
+      position: relative;
+      margin: 0;
+      padding: 12px 12px 0;
+      background: var(--fg);
+      color: var(--bg);
+      box-shadow: 0 18px 40px -12px rgba(0, 0, 0, .7)
+    }
+
+    /* masking tape: neutral on odd cards, accent on even */
+    .polaroid figure::before {
+      content: "";
+      position: absolute;
+      top: -11px;
+      left: 50%;
+      width: 84px;
+      height: 24px;
+      translate: -50% 0;
+      rotate: -3deg;
+      background: rgba(241, 237, 228, .3);
+      border-inline: 1px dashed rgba(11, 11, 10, .12)
+    }
+
+    .polaroid:nth-child(even) figure::before {
+      background: rgba(228, 87, 46, .72);
+      rotate: 4deg
+    }
+
+    .polaroid img {
       width: 100%;
-      aspect-ratio: 3/4;
-      object-fit: cover;
+      height: auto;
       background: var(--bg-2)
     }
 
-    .trail__frame .meta {
-      display: block;
-      margin-top: 10px
+    .polaroid figcaption {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      min-height: 64px;
+      padding: 14px 2px 16px
+    }
+
+    .polaroid__cap {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.1875rem;
+      line-height: 1.15
+    }
+
+    .polaroid__n {
+      flex: none;
+      font-family: var(--font-display);
+      font-size: .875rem;
+      letter-spacing: .06em;
+      color: #66615a
     }
 
     .split {
@@ -1054,7 +1137,7 @@
         font-size: 3rem
       }
 
-      .trail__frame {
+      .polaroid {
         flex-basis: 42%
       }
 
@@ -1155,7 +1238,8 @@
       }
 
       .hero__tag {
-        font-size: 2.5rem;
+        font-size: 2.25rem;
+        max-width: 24ch;
         margin-bottom: var(--s-4)
       }
 
@@ -1246,7 +1330,7 @@
       }
 
       .beat {
-        padding-block: var(--s-5)
+        padding-block: var(--s-6)
       }
 
       .beat:nth-child(4n+2),
@@ -1259,24 +1343,95 @@
       }
 
       .beat__n {
-        font-size: clamp(7rem, 9vw, 10rem)
+        font-size: clamp(8rem, 11vw, 12rem)
       }
 
       .beat h3 {
         font-size: clamp(3rem, 4vw, 4rem)
       }
 
-      /* Movement trail: edge-to-edge, staggered like frames of one phrase */
-      .trail {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        gap: var(--s-3);
-        overflow: visible;
-        padding-bottom: var(--s-5)
+      /* Polaroid wall: pinned and scattered across the full grid, no swiping needed */
+      .wall-hint {
+        display: none
       }
 
-      .trail__frame:nth-child(even) {
-        margin-top: var(--s-5)
+      .wall {
+        max-width: var(--max);
+        margin-inline: auto;
+        padding: 56px var(--gutter) var(--s-5);
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        align-items: start;
+        gap: var(--s-4) var(--s-3);
+        overflow: visible
+      }
+
+      .polaroid {
+        z-index: 1
+      }
+
+      .polaroid:nth-child(1) {
+        grid-column: 1/6;
+        --r: -2.5deg;
+        --dy: 0px
+      }
+
+      .polaroid:nth-child(2) {
+        grid-column: 6/9;
+        --r: 3deg;
+        --dy: 120px
+      }
+
+      .polaroid:nth-child(3) {
+        grid-column: 9/13;
+        --r: -2deg;
+        --dy: 40px
+      }
+
+      .polaroid:nth-child(4) {
+        grid-column: 1/4;
+        --r: 2.5deg;
+        --dy: 24px
+      }
+
+      .polaroid:nth-child(5) {
+        grid-column: 4/9;
+        --r: -2deg;
+        --dy: 0px
+      }
+
+      .polaroid:nth-child(6) {
+        grid-column: 10/13;
+        --r: 2deg;
+        --dy: 56px
+      }
+
+      .polaroid:nth-child(7) {
+        grid-column: 3/7;
+        --r: -1.5deg;
+        --dy: 0px
+      }
+
+      .polaroid:nth-child(8) {
+        grid-column: 8/11;
+        --r: 3deg;
+        --dy: 72px
+      }
+
+      .polaroid__cap {
+        font-size: 1.375rem
+      }
+
+      @media (hover:hover) {
+        .polaroid {
+          transition: rotate .45s var(--ease), scale .45s var(--ease)
+        }
+
+        .polaroid:hover {
+          rotate: 0deg;
+          scale: 1.04;
+          z-index: 3
+        }
       }
 
       .split {
@@ -1373,16 +1528,16 @@
   <main id="main" tabindex="-1">
 
     <!-- HOME -->
-    <article class="page" id="page-home" data-title="Rajit Dev — Choreographer">
+    <article class="page" id="page-home" data-title="Rajit Dev — Director &amp; Choreographer">
       <section class="hero">
         <div class="wrap">
           <div class="hero__top">
-            <p class="meta">Choreographer · Movement Director</p>
+            <p class="meta">Director · Choreographer</p>
             <p class="count-in" aria-hidden="true"><span>5</span><span>6</span><span>7</span><span>8</span></p>
           </div>
           <h1 tabindex="-1"><span>RAJIT</span> <span>DEV</span></h1>
           <div class="hero__grid">
-            <p class="hero__tag">Music, made visible.</p>
+            <p class="hero__tag">When the vision is limitless, the stage becomes his universe.</p>
             <div class="hero__cta">
               <button class="btn btn--solid" type="button" id="reelBtn" aria-haspopup="dialog">Watch the showreel</button>
               <a class="btn" href="#/work">See the work</a>
@@ -1412,14 +1567,14 @@
       <!-- EIGHT COUNTS -->
       <section aria-labelledby="counts-title">
         <div class="wrap">
-          <p class="meta reveal">The method</p>
-          <h2 class="h2 count-head reveal" id="counts-title">Every piece starts <span class="serif">on eight</span></h2>
+          <p class="meta reveal">The count-in</p>
+          <h2 class="h2 count-head reveal" id="counts-title">Five, six, <span class="serif">seven, eight</span></h2>
           <div class="count-grid">
             <div class="formation" id="formation" aria-hidden="true">
               <div class="formation__label">
                 <span class="meta">Count</span>
-                <span class="formation__n">1</span>
-                <span class="formation__word serif">Breathe</span>
+                <span class="formation__n">5</span>
+                <span class="formation__word serif">Listen</span>
               </div>
               <svg viewBox="0 0 200 200">
                 <rect class="stage" x="2" y="2" width="196" height="196" rx="4" />
@@ -1430,32 +1585,34 @@
               <p class="formation__note meta">Formation chart · eight dancers · audience below</p>
             </div>
             <ol class="beats">
-              <li class="beat reveal" data-n="1"><span class="beat__n">1</span><div><h3 class="serif">Breathe</h3><p>Every routine starts in stillness. I listen to the track until the body hears it first.</p></div></li>
-              <li class="beat reveal" data-n="2"><span class="beat__n">2</span><div><h3 class="serif">Ground</h3><p>Weight, stance, intent. The floor is the first partner in every phrase.</p></div></li>
-              <li class="beat reveal" data-n="3"><span class="beat__n">3</span><div><h3 class="serif">Rise</h3><p>Energy builds in layers, from the feet to the fingertips to the lens.</p></div></li>
-              <li class="beat reveal" data-n="4"><span class="beat__n">4</span><div><h3 class="serif">Turn</h3><p>Formations shift, and the frame reveals something nobody saw coming.</p></div></li>
-              <li class="beat reveal" data-n="5"><span class="beat__n">5</span><div><h3 class="serif">Hit</h3><p>The hook step. One clean, repeatable move a whole crowd can own.</p></div></li>
-              <li class="beat reveal" data-n="6"><span class="beat__n">6</span><div><h3 class="serif">Hold</h3><p>Stillness on the beat lands harder than any jump.</p></div></li>
-              <li class="beat reveal" data-n="7"><span class="beat__n">7</span><div><h3 class="serif">Release</h3><p>Freedom inside the structure, where each dancer's character comes through.</p></div></li>
+              <li class="beat reveal" data-n="5"><span class="beat__n">5</span><div><h3 class="serif">Listen</h3><p>Every routine starts in stillness. I live with the track until the body hears it first.</p></div></li>
+              <li class="beat reveal" data-n="6"><span class="beat__n">6</span><div><h3 class="serif">Build</h3><p>Weight, then layers, from the feet to the fingertips to the lens, while the formation shifts around the frame.</p></div></li>
+              <li class="beat reveal" data-n="7"><span class="beat__n">7</span><div><h3 class="serif">Hit</h3><p>The hook step. One clean, repeatable move a whole crowd can own.</p></div></li>
               <li class="beat reveal" data-n="8"><span class="beat__n">8</span><div><h3 class="serif">Land</h3><p>Clean, on count and camera-ready. Then again, from the top.</p></div></li>
             </ol>
           </div>
         </div>
       </section>
 
-      <!-- MOVEMENT TRAIL -->
-      <section aria-labelledby="trail-title">
-        <div class="wrap reveal">
-          <p class="meta">From the showreel</p>
-          <h2 class="h2" id="trail-title">One phrase, <span class="serif">five frames</span></h2>
+      <!-- POLAROID WALL -->
+      <section aria-labelledby="wall-title">
+        <div class="wrap reveal wall-head">
+          <div>
+            <p class="meta">Sets, stages &amp; friends</p>
+            <h2 class="h2" id="wall-title">The <span class="serif">wall</span></h2>
+          </div>
+          <p class="meta wall-hint" aria-hidden="true">Swipe →</p>
         </div>
-        <ol class="trail" tabindex="0" aria-label="Five frames of one phrase from the showreel">
-          <li class="trail__frame"><img loading="lazy" decoding="async" width="540" height="720" src="media/frame-01.jpg" sizes="(min-width:1024px) 20vw, (min-width:768px) 42vw, 72vw" alt="Frame 1: hand on heart, weight settling"><span class="meta">Frame 01 · Set</span></li>
-          <li class="trail__frame"><img loading="lazy" decoding="async" width="540" height="720" src="media/frame-02.jpg" sizes="(min-width:1024px) 20vw, (min-width:768px) 42vw, 72vw" alt="Frame 2: airborne, knee driving up"><span class="meta">Frame 02 · Leap</span></li>
-          <li class="trail__frame"><img loading="lazy" decoding="async" width="540" height="720" src="media/frame-03.jpg" sizes="(min-width:1024px) 20vw, (min-width:768px) 42vw, 72vw" alt="Frame 3: arms wide, chest to the light"><span class="meta">Frame 03 · Open</span></li>
-          <li class="trail__frame"><img loading="lazy" decoding="async" width="540" height="720" src="media/frame-04.jpg" sizes="(min-width:1024px) 20vw, (min-width:768px) 42vw, 72vw" alt="Frame 4: elbow high, foot snapping out"><span class="meta">Frame 04 · Strike</span></li>
-          <li class="trail__frame"><img loading="lazy" decoding="async" width="540" height="720" src="media/frame-05.jpg" sizes="(min-width:1024px) 20vw, (min-width:768px) 42vw, 72vw" alt="Frame 5: the final hold"><span class="meta">Frame 05 · Pose</span></li>
-        </ol>
+        <ul class="wall" tabindex="0" aria-label="Photos of Rajit with collaborators, scroll sideways">
+          <li class="polaroid reveal"><figure><img loading="lazy" decoding="async" width="900" height="942" src="media/wall-01-900.webp" srcset="media/wall-01-480.webp 480w, media/wall-01-900.webp 900w" sizes="(min-width:1024px) 34vw, (min-width:768px) 42vw, 78vw" alt="Rajit Dev between Nora Fatehi in a gold-beaded costume and Jason Derulo in a metallic shirt, on the set of Snake"><figcaption><span class="polaroid__cap">Nora Fatehi &amp; Jason Derulo · Snake</span><span class="polaroid__n">01 / 08</span></figcaption></figure></li>
+          <li class="polaroid reveal"><figure><img loading="lazy" decoding="async" width="900" height="1125" src="media/wall-02-900.webp" srcset="media/wall-02-480.webp 480w, media/wall-02-900.webp 900w" sizes="(min-width:1024px) 34vw, (min-width:768px) 42vw, 78vw" alt="Rajit Dev in a tan cap and shearling jacket taking a selfie with a smiling man in white sunglasses"><figcaption><span class="polaroid__cap">Selfie time</span><span class="polaroid__n">02 / 08</span></figcaption></figure></li>
+          <li class="polaroid reveal"><figure><img loading="lazy" decoding="async" width="900" height="1125" src="media/wall-03-900.webp" srcset="media/wall-03-480.webp 480w, media/wall-03-900.webp 900w" sizes="(min-width:1024px) 34vw, (min-width:768px) 42vw, 78vw" alt="Rajit Dev and a grey-haired man in a black leather jacket, fists raised, in front of a green screen"><figcaption><span class="polaroid__cap">Green screen day</span><span class="polaroid__n">03 / 08</span></figcaption></figure></li>
+          <li class="polaroid reveal"><figure><img loading="lazy" decoding="async" width="900" height="1200" src="media/wall-04-900.webp" srcset="media/wall-04-480.webp 480w, media/wall-04-900.webp 900w" sizes="(min-width:1024px) 34vw, (min-width:768px) 42vw, 78vw" alt="Rajit Dev posing with a woman in a burgundy sequin hood in a colourful striped interior"><figcaption><span class="polaroid__cap">On location</span><span class="polaroid__n">04 / 08</span></figcaption></figure></li>
+          <li class="polaroid reveal"><figure><img loading="lazy" decoding="async" width="900" height="900" src="media/wall-05-900.webp" srcset="media/wall-05-480.webp 480w, media/wall-05-900.webp 900w" sizes="(min-width:1024px) 34vw, (min-width:768px) 42vw, 78vw" alt="Rajit Dev with two men, one in a red suit, in a sports hall"><figcaption><span class="polaroid__cap">Behind the scenes</span><span class="polaroid__n">05 / 08</span></figcaption></figure></li>
+          <li class="polaroid reveal"><figure><img loading="lazy" decoding="async" width="900" height="1200" src="media/wall-06-900.webp" srcset="media/wall-06-480.webp 480w, media/wall-06-900.webp 900w" sizes="(min-width:1024px) 34vw, (min-width:768px) 42vw, 78vw" alt="Rajit Dev in sunglasses with a man in a floral shirt on a beach, with the crew behind them"><figcaption><span class="polaroid__cap">Beach set</span><span class="polaroid__n">06 / 08</span></figcaption></figure></li>
+          <li class="polaroid reveal"><figure><img loading="lazy" decoding="async" width="900" height="1125" src="media/wall-07-900.webp" srcset="media/wall-07-480.webp 480w, media/wall-07-900.webp 900w" sizes="(min-width:1024px) 34vw, (min-width:768px) 42vw, 78vw" alt="Rajit Dev seated behind an ARRI camera on a rig in front of a green screen"><figcaption><span class="polaroid__cap">Behind the ARRI</span><span class="polaroid__n">07 / 08</span></figcaption></figure></li>
+          <li class="polaroid reveal"><figure><img loading="lazy" decoding="async" width="900" height="1125" src="media/wall-08-900.webp" srcset="media/wall-08-480.webp 480w, media/wall-08-900.webp 900w" sizes="(min-width:1024px) 34vw, (min-width:768px) 42vw, 78vw" alt="Rajit Dev in a cap with a man in a purple turban"><figcaption><span class="polaroid__cap">Good company</span><span class="polaroid__n">08 / 08</span></figcaption></figure></li>
+        </ul>
       </section>
 
       <!-- ARTIST ROLL -->
@@ -1725,33 +1882,29 @@
       els.forEach(el => io.observe(el));
     }
 
-    /* Eight counts: the beat in the middle of the screen sets the formation chart */
+    /* Count-in (5 6 7 8): the step in the middle of the screen sets the formation chart */
     const FORMATIONS = [
       [[30, 100], [50, 100], [70, 100], [90, 100], [110, 100], [130, 100], [150, 100], [170, 100]],   // line
-      [[30, 80], [70, 80], [110, 80], [150, 80], [50, 125], [90, 125], [130, 125], [170, 125]],       // two rows
       [[100, 150], [80, 125], [120, 125], [60, 100], [140, 100], [40, 75], [160, 75], [100, 45]],     // V
-      [[160, 100], [142, 142], [100, 160], [58, 142], [40, 100], [58, 58], [100, 40], [142, 58]],     // circle
       [[100, 165], [78, 135], [122, 135], [56, 105], [144, 105], [100, 105], [34, 75], [166, 75]],    // wedge
-      [[100, 30], [100, 50], [100, 70], [100, 90], [100, 110], [100, 130], [100, 150], [100, 170]],   // column
-      [[100, 95], [40, 45], [155, 40], [170, 115], [30, 130], [125, 150], [70, 170], [60, 85]],       // scatter
       [[100, 150], [70, 120], [130, 120], [40, 90], [100, 90], [160, 90], [70, 60], [130, 60]]        // diamond
     ];
     const formation = document.getElementById("formation");
     const dots = formation.querySelectorAll(".dot");
+    const beats = [...document.querySelectorAll(".beat")];
     function setCount(beat) {
       document.querySelectorAll(".beat.is-active").forEach(b => b.classList.remove("is-active"));
       beat.classList.add("is-active");
-      const n = +beat.dataset.n;
-      FORMATIONS[n - 1].forEach(([x, y], i) => dots[i].style.transform = `translate(${x}px, ${y}px)`);
-      formation.querySelector(".formation__n").textContent = n;
+      FORMATIONS[beats.indexOf(beat)].forEach(([x, y], i) => dots[i].style.transform = `translate(${x}px, ${y}px)`);
+      formation.querySelector(".formation__n").textContent = beat.dataset.n;
       formation.querySelector(".formation__word").textContent = beat.querySelector("h3").textContent;
     }
-    setCount(document.querySelector(".beat"));
+    setCount(beats[0]);
     if ("IntersectionObserver" in window) {
       const beatIO = new IntersectionObserver(entries => entries.forEach(x => {
         if (x.isIntersecting) setCount(x.target);
       }), { rootMargin: "-45% 0px -50% 0px" });
-      document.querySelectorAll(".beat").forEach(b => beatIO.observe(b));
+      beats.forEach(b => beatIO.observe(b));
     }
 
     /* Hero loop: muted, attached after load, skipped for reduced motion and data saver */
