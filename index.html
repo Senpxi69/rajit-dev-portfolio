@@ -1627,7 +1627,7 @@
         <div class="wrap">
           <div class="head-split reveal">
             <h2 class="h2">Selected <span class="serif">work</span></h2>
-            <a class="btn" href="#/work">All 23 songs</a>
+            <a class="btn" href="#/work">All 25 projects</a>
           </div>
           <div class="work-list" id="featured"></div>
         </div>
@@ -1673,7 +1673,7 @@
     <article class="page" id="page-work" data-title="Work — Rajit Dev" hidden>
       <section>
         <div class="wrap">
-          <p class="meta">Index · 26 projects · 2017 — 2026</p>
+          <p class="meta">Index · 25 projects · 2017 — 2026</p>
           <h1 class="page-title" tabindex="-1">Work</h1>
           <div class="filters" role="group" aria-label="Filter by type">
             <button class="chip" type="button" data-cat="" aria-pressed="true">All</button>
@@ -1696,7 +1696,7 @@
           <div class="about__grid">
             <div class="about__copy">
               <p class="lead">A dancer first. Rajit moves like someone who can't hear a beat without finding the step that makes it stick.</p>
-              <p>Fluent in Salsa, Bollywood Jazz, Hip-hop and Contemporary, he blends them into modern, catchy hook steps that are easy to learn and hard to forget, which is why millions of Reels remakes exist. He choreographs for the camera and the crowd at once, from viral tracks to the FIFA Fan Festival Qatar 2022 and T20 World Cup 2026 stages.</p>
+              <p>Fluent in Salsa, Bollywood Jazz, Hip-hop and Contemporary, he blends them into modern, catchy hook steps that are easy to learn and hard to forget, which is why millions of Reels remakes exist. He choreographs for the camera and the crowd at once, from viral tracks to the FIFA Fan Festival Qatar 2022 stage.</p>
               <p>After more than a decade, he still works the same way: feel the music first, then let the body answer. For events and shows he brings a team of dancers trained under him, who know his style and his counts, so every stage looks sharp and in sync.</p>
               <ul class="list">
                 <li><span>Style</span><span class="meta">Bollywood Jazz, Hip-hop, Contemporary, Salsa</span></li>
@@ -1761,7 +1761,7 @@
 
     /* ===== PROJECTS (newest first) =====
        yt: the YouTube video ID. cat: "Music video", "Film song", "Brand" or "Live" (drives the Work filters).
-       img: a still from /media for projects with no video (live shows); they render as a plain card.
+       Projects with no yt yet (live shows) render as a "Video coming soon" card. Add yt later to make them playable.
        featured: shown on the home page. embed: false for videos whose owner blocks embedding (opens on YouTube). */
     const PROJECTS = [
       { yt: "lik59RawVfw", title: "Slay to the Rhythm", type: "Music video", cat: "Music video", year: "2026", artist: "Nora Fatehi, MA3IZ", featured: true },
@@ -1782,9 +1782,8 @@
       { yt: "HBw_sBj3xwo", title: "Psycho", type: "Music video", cat: "Music video", year: "2023", artist: "Harrdy Sandhu" },
       { yt: "nVPFfbg2clk", title: "Sexy in My Dress", type: "Music video", cat: "Music video", year: "2023", artist: "Nora Fatehi" },
       { yt: "dS_wr57Zpis", title: "Memu Aagamu", type: "Live performance · Coke Studio", cat: "Live", year: "2022", artist: "Allu Arjun, Armaan Malik, TRI.BE" },
-      { img: "media/wall-01-900.webp", title: "FIFA Fan Festival Qatar 2022", type: "Live show · FIFA", cat: "Live", year: "2022", artist: "FIFA Fan Festival, Qatar", credit: "Director & choreographer" },
-      { img: "media/wall-02-900.webp", title: "Light the Sky", type: "Live show · FIFA anthem", cat: "Live", year: "2022", artist: "FIFA World Cup Qatar 2022", credit: "Choreographer" },
-      { img: "media/wall-03-900.webp", title: "T20 World Cup 2026", type: "Live show · ICC", cat: "Live", year: "2026", artist: "ICC Men's T20 World Cup", credit: "Director & choreographer" },
+      { yt: "dcu2qD81pYA", title: "FIFA Fan Festival Qatar 2022", type: "Live show · FIFA", cat: "Live", year: "2022", artist: "FIFA Fan Festival, Qatar", credit: "Director & choreographer" },
+      { yt: "4HKNdrBYS5k", title: "Light the Sky", type: "Live show · FIFA anthem", cat: "Live", year: "2022", artist: "FIFA World Cup Qatar 2022", credit: "Choreographer" },
       { yt: "Tb6xGDiSscc", title: "Dirty Little Secret", type: "Music video", cat: "Music video", year: "2022", artist: "Nora Fatehi, Zack Knight" },
       { yt: "NwdQx2P_ytk", title: "Bijlee Bijlee", type: "Music video", cat: "Music video", year: "2021", artist: "Harrdy Sandhu, Palak Tiwari", featured: true },
       { yt: "hGf8rOwFzvo", title: "Chhor Denge", type: "Music video", cat: "Music video", year: "2021", artist: "Nora Fatehi, Ehan Bhat" },
@@ -1810,7 +1809,7 @@
     function projectHTML(p, i) {
       if (!p.yt) return `
   <div class="project reveal">
-    <div class="poster" style="cursor:auto"><img loading="lazy" decoding="async" src="${esc(p.img)}" alt="${esc(p.title)}"></div>
+    <div class="poster" style="cursor:auto;display:grid;place-items:center;text-align:center"><span class="meta">Video coming soon</span></div>
     <div>
       <span class="project__num">${String(i + 1).padStart(2, "0")}</span>
       <h3>${esc(p.title)}</h3>
@@ -1834,7 +1833,7 @@
       <span class="project__num">${String(i + 1).padStart(2, "0")}</span>
       <h3>${esc(p.title)}</h3>
       <p class="meta">${esc(p.type)} · ${esc(p.year)}</p>
-      <dl class="credits"><dt>Artist</dt><dd>${esc(p.artist)}</dd><dt>Role</dt><dd>${ROLE}</dd>
+      <dl class="credits"><dt>Artist</dt><dd>${esc(p.artist)}</dd><dt>Role</dt><dd>${esc(p.credit || ROLE)}</dd>
         <dt>Watch</dt><dd><a href="${watchURL(p.yt)}" target="_blank" rel="noopener noreferrer">YouTube ↗<span class="sr-only"> (opens in a new tab)</span></a></dd></dl>
     </div>
   </div>`;
