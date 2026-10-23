@@ -1724,7 +1724,7 @@
         <div class="wrap">
           <div class="head-split reveal">
             <h2 class="h2">Selected <span class="serif">work</span></h2>
-            <a class="btn" href="#/work">All 24 projects</a>
+            <a class="btn" href="#/work">All 26 projects</a>
           </div>
           <div class="work-list" id="featured"></div>
         </div>
@@ -1733,16 +1733,16 @@
       <!-- STAGE SHOWS -->
       <section aria-labelledby="stage-title">
         <div class="wrap reveal">
-          <p class="meta">Live</p>
+          <p class="meta">Concerts &amp; events</p>
           <h2 class="h2" id="stage-title" style="margin-block:var(--s-2) var(--s-3)">Stage <span class="serif">shows</span></h2>
           <p class="lead">From fan festivals to sangeet nights, choreography built for the room, with trained dancers who know his counts.</p>
           <ul class="list">
-            <li><span>FIFA Fan Festival Qatar 2022</span><span class="meta">One-hour show with Nora Fatehi</span></li>
-            <li><span>Memu Aagamu · Coke Studio</span><span class="meta">Live with Allu Arjun</span></li>
-            <li><span>Light the Sky</span><span class="meta">FIFA World Cup 2022 anthem</span></li>
+            <li><span>Nora Fatehi Live at Parul University</span><span class="meta">Concert · 2026</span></li>
+            <li><span>UNTOLD Dubai</span><span class="meta">Concert · 2025</span></li>
             <li><span>Sangeet &amp; private events</span><span class="meta">Choreography and dancers</span></li>
           </ul>
-          <p style="margin-top:var(--s-4)"><a class="btn" href="#/work">See the live work</a></p>
+          <div class="work-list" id="stageshows"></div>
+          <p style="margin-top:var(--s-4)"><a class="btn" href="#/work">See all the work</a></p>
         </div>
       </section>
 
@@ -1786,13 +1786,19 @@
     <article class="page" id="page-work" data-title="Work — Rajitdev" hidden>
       <section>
         <div class="wrap">
-          <p class="meta">Index · 24 projects · 2017 — 2026</p>
+          <p class="meta">Index · 26 projects · 2017 — 2026</p>
           <h1 class="page-title" tabindex="-1">Work</h1>
           <div class="press-head reveal">
             <p class="meta">In the press</p>
             <p class="meta press-hint" aria-hidden="true">Swipe →</p>
           </div>
           <div class="press" tabindex="0" aria-label="Press clippings about the FIFA World Cup anthem, scroll sideways">
+          <figure class="clip reveal">
+            <button class="clip__open" type="button" data-full="media/press-07-full.webp" data-alt="GI feature graphic: India never had a choreographer on a FIFA anthem. Until now. Rajit Dev with Nora Fatehi in front of the FIFA World Cup trophy" aria-label="Read the full feature: India never had a choreographer on a FIFA anthem. Until now">
+              <img loading="lazy" decoding="async" src="media/press-07.webp" alt="GI feature graphic: India never had a choreographer on a FIFA anthem. Until now. Rajit Dev with Nora Fatehi in front of the FIFA World Cup trophy">
+            </button>
+            <figcaption><span class="clip__src">GI</span><span class="clip__title">India never had a choreographer on a FIFA anthem. Until now.</span></figcaption>
+          </figure>
           <figure class="clip reveal">
             <button class="clip__open" type="button" data-full="media/press-01-full.webp" data-alt="Mid-day clipping: A goal-worthy move for Indian dance. Mumbai-born choreographer Rajit Dev scripts history with the FIFA World Cup 2026 anthem starring Nora Fatehi" aria-label="Read the full clipping: A goal-worthy move for Indian dance">
               <img loading="lazy" decoding="async" src="media/press-01.webp" alt="Mid-day clipping: A goal-worthy move for Indian dance. Mumbai-born choreographer Rajit Dev scripts history with the FIFA World Cup 2026 anthem starring Nora Fatehi">
@@ -1836,6 +1842,16 @@
             <button class="chip" type="button" data-cat="Film song" aria-pressed="false">Film songs</button>
             <button class="chip" type="button" data-cat="Brand" aria-pressed="false">Brand</button>
             <button class="chip" type="button" data-cat="Live" aria-pressed="false">Live</button>
+            <button class="chip" type="button" data-cat="Stage show" aria-pressed="false">Stage shows</button>
+          </div>
+          <div id="stageIntro" hidden>
+            <h2 class="h2" style="margin-block:var(--s-4) var(--s-3)">Stage <span class="serif">shows</span></h2>
+            <p class="lead">From fan festivals to sangeet nights, choreography built for the room, with trained dancers who know his counts.</p>
+            <ul class="list">
+              <li><span>Nora Fatehi Live at Parul University</span><span class="meta">Concert · 2026</span></li>
+              <li><span>UNTOLD Dubai</span><span class="meta">Concert · 2025</span></li>
+              <li><span>Sangeet &amp; private events</span><span class="meta">Choreography and dancers</span></li>
+            </ul>
           </div>
           <div class="work-list" id="allwork"></div>
         </div>
@@ -1925,12 +1941,14 @@
     document.documentElement.classList.add("js");
 
     /* ===== PROJECTS (newest first) =====
-       yt: the YouTube video ID. cat: "Music video", "Film song", "Brand" or "Live" (drives the Work filters).
+       yt: the YouTube video ID. cat: "Music video", "Film song", "Brand", "Live" or "Stage show" (drives the Work filters).
        Projects with no yt yet (live shows) render as a "Video coming soon" card. Add yt later to make them playable.
-       featured: shown on the home page. embed: false for videos whose owner blocks embedding (opens on YouTube). */
+       featured: shown on the home page. stage: shown in the Home "Stage shows" section. embed: false for videos whose owner blocks embedding (opens on YouTube). */
     const PROJECTS = [
       { yt: "lik59RawVfw", title: "Slay to the Rhythm", type: "Music video", cat: "Music video", year: "2026", artist: "Nora Fatehi, MA3IZ", featured: true },
       { yt: "UKZe6TrbozM", title: "Rico Rico", type: "Music video", cat: "Music video", year: "2026", artist: "Dhvani Bhanushali" },
+      { yt: "DA0FSJ8bJps", title: "Nora Fatehi Live at Parul University", type: "Stage show · Concert", cat: "Stage show", year: "2026", artist: "Nora Fatehi", stage: true },
+      { yt: "FdO49uJWvLA", title: "UNTOLD Dubai", type: "Stage show · Concert", cat: "Stage show", year: "2025", artist: "Nora Fatehi", stage: true },
       { yt: "L8GQD4c915U", title: "Money Money", type: "Film song · Raid 2", cat: "Film song", year: "2025", artist: "Yo Yo Honey Singh, Ajay Devgn", featured: true },
       { yt: "D1LFARY2X6Y", title: "Pabbi", type: "Music video", cat: "Music video", year: "2025", artist: "Tulsi Kumar, Jasmin Walia" },
       { yt: "2q_k8JuqyV0", title: "Snake", type: "Music video", cat: "Music video", year: "2025", artist: "Nora Fatehi, Jason Derulo", embed: false },
@@ -2003,9 +2021,11 @@
     function renderWork(cat) {
       const list = cat ? PROJECTS.filter(p => p.cat === cat) : PROJECTS;
       document.getElementById("allwork").innerHTML = list.map(projectHTML).join("");
+      document.getElementById("stageIntro").hidden = cat !== "Stage show";
     }
 
     function render() {
+      document.getElementById("stageshows").innerHTML = PROJECTS.filter(p => p.stage).map(projectHTML).join("");
       document.getElementById("featured").innerHTML = PROJECTS.filter(p => p.featured).map(projectHTML).join("");
       renderWork("");
     }
